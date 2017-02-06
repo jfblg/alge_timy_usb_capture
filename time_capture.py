@@ -4,13 +4,10 @@ __author__ = "Frantisek Janus"
 # TODO implement basic commandline interface with infinite loop
 
 from timy import Timy
-from database import Time
 
 def main():
-    # dev = Timy()
-    # dev.capture_start()
-    record = Time("fero")
-    record.save_to_db()
+    dev = Timy()
+    dev.capture_start()
 
 if __name__ == "__main__":
     main()

@@ -4,7 +4,7 @@ import os
 
 import sqlalchemy
 from sqlalchemy import create_engine, ForeignKey, exc
-from sqlalchemy import Column, Date, Integer, String
+from sqlalchemy import Column, Date, Integer, Interval, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -16,16 +16,20 @@ engine = create_engine("sqlite:///{}".format(os.path.join(os.getcwd(), DB_NAME))
 Session = sessionmaker(bind=engine)
 
 
-class Time(Base):
+class TimeModel(Base):
+    """Data model definition for SQLAlchemy"""
+
     __tablename__ = "time"
     id = Column(Integer, primary_key=True)
-    name = Column(String)
+    time_measured = Column(Interval)
+    order_number = Column(Integer) # number received from TIMY3 [1-99]
 
     def __repr__(self):
-        return "<Time(id='%s', name='%s')>" % (self.id, self.name)
+        return "<Time(id='%s', time_measured='%s', order='%s')>" % (self.id, self.time_measured, self.oder_number)
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, time_measured, order_number):
+        self.time_measured = time_measured
+        self.order_number = order_number
 
     def save_to_db(self):
         """Save instance to the database."""
@@ -43,10 +47,7 @@ Base.metadata.create_all(engine)
 
 
 def main():
-    fero = Time("Fero Janus")
-    print(fero)
-    fero.save_to_db()
-    print("test")
+    pass
 
 if __name__ == "__main__":
     main()

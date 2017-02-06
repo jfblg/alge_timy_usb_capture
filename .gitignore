@@ -150,3 +150,4 @@ ENV/
 # End of https://www.gitignore.io/api/python,pycharm
 
 db.sqlite
+timylog.txt
