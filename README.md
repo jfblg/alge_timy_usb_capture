@@ -3,9 +3,9 @@
 Project in development.
 
 ### Goal:
-[x] to demonstrate how to capture data (measured time) from the time measure device ALGE TIMY3
-[x] show how to store it using SQLAlchemy ORM > SQLite3
-[] to provide basic command line interface
+- [x] to demonstrate how to capture data (measured time) from the time measure device ALGE TIMY3
+- [x] show how to store it using SQLAlchemy ORM > SQLite3
+- [ ] to provide basic command line interface
 
 
 The Timy.py class is intended for further use in my other projects.
